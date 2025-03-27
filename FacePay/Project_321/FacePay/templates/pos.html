@@ -1,0 +1,230 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Face Payment - POS</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="{% static 'css/pos.css' %}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class="pos-layout">
+  <aside class="sidebar">
+    <div class="worker-info">
+      <img src="{% static 'facepay/images/worker.png' %}" alt="Worker Photo" class="worker-photo">
+      <h2>Worker: {{ user.username }}</h2>
+    </div>
+    <ul class="sidebar-menu">
+      <li><a href="{% url 'workpanel' %}"><i class="fa fa-arrow-left"></i> Back to Workpanel</a></li>
+      <li><a href="{% url 'pos' %}"><i class="fa fa-shopping-cart"></i> POS</a></li>
+      <li><a href="{% url 'login' %}"><i class="fa fa-edit"></i> Log Out</a></li>
+    </ul>
+  </aside>
+
+  <div class="main-content">
+    <header class="pos-header">
+      <div class="customer-select">
+        <label for="customer-select">Select Customer:</label>
+        <select id="customer-select" name="customer">
+          <option value="">-- Choose Customer --</option>
+        </select>
+        <button class="scan-btn" onclick="startCustomerFaceScan()">Face Scan for Customer</button>
+      </div>
+      <div class="customer-info">
+        <h2>Customer Details</h2>
+          <p>Student ID: <span id="customer-id">N/A</span></p>
+          <p>Name: <span id="customer-name">N/A</span></p>
+          <p>Wallet Balance: AED <span id="customer-wallet">0</span></p>
+          <p>Allergies: <span id="customer-allergies">None</span></p>
+      </div>
+    </header>
+
+    <section class="pos-products">
+      <h2>Products</h2>
+      <div class="product-grid" id="product-grid">
+        {% for product in products %}
+        <div class="product-card" data-id="{{ product.id }}" data-price="{{ product.price }}" data-name="{{ product.name }}">
+          <img src="https://via.placeholder.com/100" alt="Product Image" class="product-img">
+          <div class="product-details">
+            <h3>{{ product.name }}</h3>
+            <p>Ingredients: {{ product.ingredients }}</p>
+            <p class="price">AED <span>{{ product.price }}</span></p>
+          </div>
+          <button class="add-cart-btn" onclick="addToCart('{{ product.name }}', {{ product.price }}, {{ product.id }})">Add to Cart</button>
+        </div>
+        {% endfor %}
+      </div>
+    </section>
+
+    <section class="cart-summary">
+      <h2>Cart</h2>
+      <div id="cart-items"></div>
+      <p>Subtotal: AED <span id="subtotal">0</span></p>
+      <button class="pay-btn" id="proceed-payment-btn" onclick="processPayment()">Proceed to Payment</button>
+    </section>
+  </div>
+
+  <script>
+    let cart = [];
+    let subtotal = 0;
+    let studentId = null;
+
+    function addToCart(name, price) {
+      cart.push({ name, price });
+      updateCart();
+    }
+
+    function updateCart() {
+      const cartContainer = document.getElementById("cart-items");
+      cartContainer.innerHTML = "";
+      subtotal = 0;
+      cart.forEach((item, index) => {
+        subtotal += item.price;
+        cartContainer.innerHTML += `<div class='cart-item' data-id="${item.id}" data-name="${item.name}" data-price="${item.price}">
+          ${item.name} - AED ${item.price}
+          <button onclick="removeFromCart(${index})">Remove</button>
+        </div>`;
+      });
+      document.getElementById("subtotal").textContent = subtotal;
+    }
+
+    function removeFromCart(index) {
+      cart.splice(index, 1);
+      updateCart();
+    }
+
+
+function startCustomerFaceScan() {
+    fetch('/scan_customer_face/', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRFToken': getCSRFToken()
+        },
+        body: JSON.stringify({})
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            console.log("Student ID Received:", data.student_id);
+            document.getElementById("customer-id").textContent = data.student_id;
+            document.getElementById("customer-name").textContent = data.name;
+            document.getElementById("customer-wallet").textContent = data.wallet;
+            document.getElementById("customer-allergies").textContent = data.allergies;
+
+            highlightAllergicProducts(data.allergy_list);
+
+
+            document.getElementById("customer-select").dataset.studentId = data.student_id;
+
+            alert("Customer face scan successful!");
+        } else {
+            alert(data.error);
+        }
+    })
+    .catch(error => console.error("Error scanning face:", error));
+}
+
+
+
+    function processPayment() {
+    console.log(" processPayment function triggered"); // Debugging log
+
+    let studentIdElement = document.getElementById("customer-id");
+    let walletBalanceElement = document.getElementById("customer-wallet");
+    let customerNameElement = document.getElementById("customer-name");
+
+    // Ensure the elements exist
+    if (!studentIdElement || !walletBalanceElement || !customerNameElement) {
+        alert(" Error: Missing customer details. Please scan a face first.");
+        return;
+    }
+
+    let studentId = studentIdElement.textContent.trim();
+    let walletBalance = parseFloat(walletBalanceElement.textContent);
+    let customerName = customerNameElement.textContent.trim();
+
+    if (!studentId || studentId === "N/A") {
+        alert(" No student selected. Please scan a face first.");
+        return;
+    }
+
+    if (subtotal === 0) {
+        alert(" Please add items to the cart before proceeding to payment.");
+        return;
+    }
+
+    console.log(" Cart subtotal:", subtotal);
+    console.log(" Customer Name:", customerName);
+    console.log(" Wallet Balance:", walletBalance);
+    console.log(" Student ID:", studentId);
+
+    let cartItems = cart.map(item => ({
+        name: item.name,
+        price: item.price
+    }));
+
+    fetch("/process_payment/", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "X-CSRFToken": getCSRFToken()
+        },
+        body: JSON.stringify({
+            student_id: studentId,
+            total: subtotal,
+            items: cartItems
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log(" Server Response:", data);
+
+        if (data.success) {
+            alert(" Payment Successful!");
+            walletBalanceElement.textContent = data.new_balance;
+            cart = [];
+            updateCart();
+        } else {
+            alert(" Payment Failed: " + data.error);
+        }
+    })
+    .catch(error => console.error(" Error in payment:", error));
+}
+
+
+
+    function getCSRFToken() {
+        return document.cookie.split('; ').find(row => row.startsWith('csrftoken')).split('=')[1];
+    }
+
+
+    function highlightAllergicProducts(allergyList) {
+    // Get all product cards
+    const productCards = document.querySelectorAll(".product-card");
+
+    productCards.forEach(card => {
+        const ingredients = card.querySelector(".product-details p").textContent.toLowerCase();
+        const isAllergic = allergyList.some(allergy => ingredients.includes(allergy));
+
+        if (isAllergic) {
+            card.style.border = "2px solid red";
+            card.style.backgroundColor = "#d35c5c";
+        } else {
+
+            card.style.border = "";
+            card.style.backgroundColor = "";
+        }
+    });
+}
+
+
+  </script>
+
+<form method="post">
+  {% csrf_token %}
+</form>
+
+</body>
+</html>

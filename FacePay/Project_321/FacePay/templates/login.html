@@ -1,0 +1,80 @@
+﻿{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Login</title>
+  <!-- Font Awesome for icons (optional) -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+  />
+  <!-- Link to your CSS -->
+  <link rel="stylesheet" href="{% static 'css/login.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+  <link rel="stylesheet" href="{% static 'css/main.css' %}">
+
+  <nav class="navbar">
+    <ul>
+      <li><a href="{% url 'homepage' %}">Home</a></li>
+      <li><a href="{% url 'register' %}">Register</a></li>
+    </ul>
+  </nav>
+</head>
+<body>
+    <header class="site-header">
+        <img src="{% static 'images/facecard-removebg-preview.png' %}" alt="Company Logo" class="logo">
+    </header>
+
+  <div class="login-container">
+    <div class="login-card">
+      <h2 class="login-title">Login</h2>
+
+      {% if messages %}
+      <div class="error-messages">
+        {% for message in messages %}
+          <p style="color: red;">{{ message }}</p>
+        {% endfor %}
+      </div>
+      {% endif %}
+
+      <form method="POST" action="{% url 'login' %}">
+        {% csrf_token %}
+
+        <!-- Username Field -->
+        <div class="input-field">
+          <i class="fas fa-user"></i>
+          <input type="text" name="username" placeholder="Username" required />
+        </div>
+
+        <!-- Password Field -->
+        <div class="input-field">
+          <i class="fas fa-lock"></i>
+          <input type="password" name="password" placeholder="Password" required />
+        </div>
+
+        <!-- Extra Options (Remember / Forgot?) -->
+        <div class="options">
+          <label class="remember-me">
+            <input type="checkbox" name="remember_me" />
+            <span>Remember me</span>
+          </label>
+          <a href="#" class="forgot">Forgot password?</a>
+        </div>
+
+        <!-- Login Buttons -->
+        <div class="button-group">
+          <button type="submit" name="role" value="parent" class="login-btn">Login as Parent</button>
+          <button type="submit" name="role" value="worker" class="login-btn">Login as Worker</button>
+        </div>
+      </form>
+
+      <!-- Register Option -->
+      <div class="register">
+        Don't have an account?
+        <a href="{% url 'register' %}">Register</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

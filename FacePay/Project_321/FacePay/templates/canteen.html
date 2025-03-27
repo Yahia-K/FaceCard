@@ -1,0 +1,198 @@
+﻿{% load static %}
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com"></script>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+       <!-- /. WRAPPER  -->
+    <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
+    <!-- JQUERY SCRIPTS -->
+    <script src="{% static 'assets/js/jquery-1.10.2.js' %}"></script>
+    <!-- BOOTSTRAP SCRIPTS -->
+   <script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
+    <!-- METISMENU SCRIPTS -->
+   <script src="{% static 'assets/js/jquery.metisMenu.js' %}"></script>
+    <!-- CUSTOM SCRIPTS -->
+   <script src="{% static 'assets/js/custom.js' %}"></script>
+    <script>
+       function scrollToTable(event) {
+        event.preventDefault();  
+        document.getElementById("HistoryTable").scrollIntoView({ behavior: "smooth" });
+    }
+    function redirectToPage() {
+        window.location.href = "index.html";  
+    }
+</script>
+<style>
+    .read-more-row {
+        background-color: #d3d3d3 !important; 
+        text-align: center;
+        font-weight: bold; 
+        cursor: pointer; 
+    }
+
+    .read-more-row:hover {
+        background-color: #bdbdbd; 
+    }
+</style>
+    <!-- BOOTSTRAP STYLES-->
+    <link href="{% static 'assets/css/bootstrap.css' %}" rel="stylesheet" />
+    <!-- FONTAWESOME STYLES-->
+    <link href="{% static 'assets/css/font-awesome.css' %}" rel="stylesheet" />
+    <!-- CUSTOM STYLES-->
+    <link href="{% static 'assets/css/custom.css' %}" rel="stylesheet" />
+    <!-- GOOGLE FONTS-->
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css" />
+</head>
+
+
+<body>  
+        <!-- /. NAV TOP  -->
+        <nav class="navbar-default navbar-side" role="navigation">
+            <div class="sidebar-collapse">
+                <ul class="nav" id="main-menu">
+                    <li class="text-center user-image-back">
+                        <img src="{% static 'assets/img/find_user.png' %}   " class="img-responsive" />
+                        <h2>Worker: Aziz</h2>
+                     
+                    </li>
+
+
+                    <li>
+                       <a href="{% url 'workpanel' %}"><i class="fa fa-desktop"></i> Dashboard</a>
+
+                    </li>
+
+          
+                    </li>
+                    <li>
+                       <a href="{% url 'login' %}"><i class="fa fa-edit"></i> Log Out</a>
+
+                    </li>
+                </ul>
+
+            </div>
+
+        </nav>
+        <!-- /. NAV SIDE  -->
+        <div id="page-wrapper">
+            <div id="page-inner">
+                <div class="row">
+                    <div class="col-md-12">
+                        
+                        
+                    </div>
+                </div>
+                <!-- /. ROW  -->
+                <hr />
+                 <!-- /. CAAAAAAAAAAAAAAAAAAAAAAAAAAAAART BOX -->
+               <section class="py-24 relative">
+  <div class="max-w-7xl mx-auto bg-white p-6 rounded-lg shadow">
+
+    <h2 class="text-3xl font-bold text-center mb-8">Shopping Cart</h2>
+
+    <!-- product 1 -->
+    <div class="flex items-center justify-between border-b py-4">
+      <div class="flex items-center gap-4">
+        <img src="https://www.almaraipro.com/medias/87110?context=bWFzdGVyfGltYWdlc3wxMjIzMzh8aW1hZ2UvcG5nfGFXMWhaMlZ6TDJoa1l5OW9NV012T0Rnd01UVTBORFk1T1Rrek5DNXdibWN8ZGRhNTNmZmZkNGFkMTkzYjJmOGJlYmY4YzgyNjM2NzRiOWE3YjRkYTBmMGZiMjlhMWU0ZjQ0NDk3NDFiMmQzMw" class="w-20 h-20 rounded-lg">
+        <h5 class="font-bold">7DAYS Strawberry Bread</h5>
+      </div>
+      <div class="flex items-center gap-2">
+        <button onclick="changeQuantity(0, -1)" class="bg-gray-200 px-3 py-1 rounded-full">-</button>
+        <span id="quantity-0">0</span>
+        <button onclick="changeQuantity(0, 1)" class="bg-gray-200 px-3 py-1 rounded-full">+</button>
+      </div>
+      <span class="text-indigo-600 font-bold">aed <span id="price-0">4</span></span>
+    </div>
+
+    <!-- product 2 -->
+    <div class="flex items-center justify-between border-b py-4">
+      <div class="flex items-center gap-4">
+        <img src="https://m.media-amazon.com/images/I/71FA-WpdWmL.jpg" class="w-20 h-20 rounded-lg">
+        <h5 class="font-bold">Lacnor Chocolate Milk</h5>
+      </div>
+      <div class="flex items-center gap-2">
+        <button onclick="changeQuantity(1, -1)" class="bg-gray-200 px-3 py-1 rounded-full">-</button>
+        <span id="quantity-1">0</span>
+        <button onclick="changeQuantity(1, 1)" class="bg-gray-200 px-3 py-1 rounded-full">+</button>
+      </div>
+      <span class="text-indigo-600 font-bold">aed <span id="price-1">3</span></span>
+    </div>
+
+
+    <div class="flex justify-between items-center mt-6">
+      <h5 class="font-bold text-xl">SUBTOTAL</h5>
+      <h5 class="text-indigo-600 font-bold text-xl">aed <span id="total">0</span></h5>
+    </div>
+
+    <div class="text-center mt-8">
+      <button onclick="scanToPay()" class="bg-green-600 text-white font-bold py-3 px-10 rounded-full text-lg hover:bg-green-700 transition">
+        Scan to Pay
+      </button>
+    </div>
+
+  </div>
+
+
+  <script>
+    const prices = [4, 3]; 
+    const quantities = [0, 0]; 
+
+    function changeQuantity(index, change) {
+      quantities[index] += change;
+      if (quantities[index] < 0) quantities[index] = 0;
+      document.getElementById(`quantity-0`).textContent = quantities[0];
+      document.getElementById(`quantity-1`).textContent = quantities[1];
+      updateTotal();
+    }
+
+    function updateTotal() {
+      let total = 0;
+      for (let i = 0; i < prices.length; i++) {
+        total += prices[i] * quantities[i];
+      }
+      document.getElementById("total").textContent = total;
+    }
+
+   
+    function scanToPay() {
+      const total = document.getElementById("total").textContent;
+      if (total == "0") {
+        alert("Please select at least one product before payment!");
+      } else {
+     
+        alert(`Starting face scan for payment of AED ${total}...`);
+       
+      }
+    }
+  </script>
+</section>
+                <!-- /. ROW  -->
+                <hr />
+                <hr />
+                <hr />
+
+
+            
+          
+                  <div class="row">
+                    <div class="col-md-12">
+                        <h5>Information</h5>
+                           This project helps parents ensure that their children can make payments safely at school. Therefore, apart from transaction fees, we will not charge parents any additional fees.
+                    </div>
+                </div>
+                <!-- /. ROW  -->
+
+            </div>
+            <!-- /. PAGE INNER  -->
+        </div>
+        <!-- /. PAGE WRAPPER  -->
+    </div>
+  
+
+
+</body>
+</html>

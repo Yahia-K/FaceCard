@@ -1,0 +1,202 @@
+/* Global Styles */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+  background: #f4f4f4;
+  min-height: 100vh;
+}
+
+/* ------------------------------ */
+/*         Sidebar (Parent)       */
+/* ------------------------------ */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 240px;
+  height: 100%;
+  background: #210B45;
+  color: #fff;
+  padding: 2rem 1rem;
+  overflow-y: auto;
+  z-index: 1100;
+}
+.sidebar-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.sidebar-header .avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin-bottom: 0.5rem;
+}
+.sidebar-header h3 {
+  font-size: 1.2rem;
+  margin: 0;
+}
+.sidebar-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.sidebar-menu li {
+  margin-bottom: 1rem;
+}
+.sidebar-menu li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+  padding: 0.5rem 1rem;
+  display: block;
+  transition: background 0.3s;
+}
+.sidebar-menu li a:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+}
+
+/* ------------------------------ */
+/*       Main Content Area        */
+/* ------------------------------ */
+.main-content {
+  margin-left: 240px;
+  padding: 2rem;
+}
+
+/* Header for Add Kid Page */
+.header {
+  background: rgba(255,255,255,0.95);
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+.header h1 {
+  margin: 0 0 0.5rem;
+  font-size: 2.5rem;
+  color: #210B45;
+}
+
+/* Form Wrapper */
+.form-wrapper {
+  background: #fff;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 2rem 2.5rem;
+  border-radius: 10px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+/* Face Scan Button */
+.scan-btn {
+  display: block;
+  margin: 0 auto 1.5rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  color: #210B45;
+  transition: transform 0.3s;
+}
+.scan-btn img {
+  width: 80px;
+  height: 80px;
+}
+.scan-btn:hover {
+  transform: scale(1.05);
+}
+
+/* Form Add Child Button (Visible Submit Button) */
+.form-add-btn {
+  display: block;
+  margin: 1.5rem auto 0;
+  padding: 14px 25px;
+  border: none;
+  border-radius: 5px;
+  background-color: #6a64f1;
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.form-add-btn:hover {
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Form Groups */
+.input-group {
+  margin-bottom: 1.5rem;
+}
+.form-label {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 0.5rem;
+  color: #210B45;
+}
+.form-input {
+  width: 100%;
+  padding: 13px 22px;
+  border: 1px solid #dde3ec;
+  border-radius: 5px;
+  background: #ffffff;
+  font-size: 16px;
+  color: #07074d;
+  outline: none;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+.form-input::placeholder {
+  color: #536387;
+}
+.form-input:focus {
+  border-color: #6a64f1;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Checkbox Group */
+.checkbox-group {
+  margin-bottom: 1.5rem;
+}
+.checkbox-row {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+.checkbox-label {
+  font-size: 14px;
+  color: #210B45;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.checkbox-label input {
+  margin-right: 0.3rem;
+}
+
+/* ------------------------------ */
+/*         Responsive Tweaks      */
+/* ------------------------------ */
+@media screen and (max-width: 768px) {
+  .sidebar {
+    width: 200px;
+    padding: 1.5rem 1rem;
+  }
+  .main-content {
+    margin-left: 200px;
+    padding: 1rem;
+  }
+  .header h1 {
+    font-size: 2rem;
+  }
+  .form-wrapper {
+    width: 90%;
+    padding: 1.5rem;
+  }
+}

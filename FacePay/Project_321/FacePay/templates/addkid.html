@@ -1,0 +1,120 @@
+﻿{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Add Child - Face Payment</title>
+  <!-- Bootstrap CSS -->
+  <link href="{% static 'assets/css/bootstrap.css' %}" rel="stylesheet" />
+  <!-- FontAwesome CSS -->
+  <link href="{% static 'assets/css/font-awesome.css' %}" rel="stylesheet" />
+  <!-- Custom Parent Page CSS -->
+  <link href="{% static 'css/parent.css' %}" rel="stylesheet" />
+  <!-- Custom Add Kid Page CSS -->
+  <link href="{% static 'css/addkid.css' %}" rel="stylesheet" />
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css" />
+  <script>
+    function startFaceScan() {
+      alert("Starting face scan...");
+      document.getElementById("add-child-btn").style.display = "block";
+    }
+  </script>
+</head>
+<body>
+  <!-- Sidebar -->
+  <nav class="sidebar">
+    <div class="sidebar-header">
+      <img src="{% static 'assets/img/parent_avatar.png' %}" alt="Parent Avatar" class="avatar">
+      <h3>John Doe</h3>
+    </div>
+    <ul class="sidebar-menu">
+      <li><a href="{% url 'parent' %}"><i class="fa fa-home"></i> Home</a></li>
+      <li><a href="{% url 'addkid' %}"><i class="fa fa-user-plus"></i> Add Child</a></li>
+      <li><a href="{% url 'homepage' %}"><i class="fa fa-sign-out"></i> Log Out</a></li>
+    </ul>
+  </nav>
+
+  <!-- Main Content Area -->
+  <div class="main-content">
+    <header class="header">
+      <h1>Add a Child</h1>
+      <p>Fill in the details below to add a new child to your account.</p>
+    </header>
+
+    <div class="form-wrapper">
+
+      <!-- Form -->
+      <form id="child-form" action="{% url 'addkid' %}" method="POST">
+        {% csrf_token %}
+        <div class="input-group">
+          <label for="name" class="form-label">Name</label>
+          <input type="text" name="name" id="name" placeholder="Enter child's name" class="form-input" required>
+        </div>
+        <div class="input-group">
+          <label for="StudentID" class="form-label">Student ID</label>
+          <input type="text" name="StudentID" id="StudentID" placeholder="Enter Student ID" class="form-input" required>
+        </div>
+        <div class="input-group">
+          <label for="age" class="form-label">Age</label>
+          <input type="text" name="age" id="age" placeholder="Enter age" class="form-input" required>
+        </div>
+        <div class="checkbox-group">
+          <span class="form-label">Select Child Allergies:</span>
+          <div class="checkbox-row">
+            <label class="checkbox-label" for="Peanuts">
+              <input type="checkbox" name="allergies" value="Peanuts" id="Peanuts"> Peanuts
+            </label>
+            <label class="checkbox-label" for="Tree_nuts">
+              <input type="checkbox" name="allergies" value="Tree nuts" id="Tree_nuts"> Tree nuts
+            </label>
+          </div>
+          <div class="checkbox-row">
+            <label class="checkbox-label" for="Milk">
+              <input type="checkbox" name="allergies" value="Milk" id="Milk"> Milk
+            </label>
+            <label class="checkbox-label" for="Eggs">
+              <input type="checkbox" name="allergies" value="Eggs" id="Eggs"> Eggs
+            </label>
+          </div>
+          <div class="checkbox-row">
+            <label class="checkbox-label" for="Fish">
+              <input type="checkbox" name="allergies" value="Fish" id="Fish"> Fish
+            </label>
+            <label class="checkbox-label" for="Soy">
+              <input type="checkbox" name="allergies" value="Soy" id="Soy"> Soy
+            </label>
+          </div>
+          <div class="checkbox-row">
+            <label class="checkbox-label" for="Wheat">
+              <input type="checkbox" name="allergies" value="Wheat" id="Wheat"> Wheat
+            </label>
+            <label class="checkbox-label" for="Honey">
+              <input type="checkbox" name="allergies" value="Honey" id="Honey"> Honey
+            </label>
+          </div>
+          <div class="checkbox-row">
+            <label class="checkbox-label" for="Strawberries">
+              <input type="checkbox" name="allergies" value="Strawberry" id="Strawberry"> Strawberry
+            </label>
+            <label class="checkbox-label" for="Sesame">
+              <input type="checkbox" name="allergies" value="Sesame" id="Sesame"> Sesame
+            </label>
+          </div>
+        </div>
+
+        <div class="input-group">
+          <label for="other-allergies" class="form-label">Any Other Allergies</label>
+          <textarea id="other-allergies" name="other_allergies" rows="4" placeholder="Type here..." class="form-input"></textarea>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" id="add-child-btn" class="form-add-btn">
+          Add Child
+        </button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

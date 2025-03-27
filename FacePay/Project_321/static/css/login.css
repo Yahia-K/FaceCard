@@ -1,0 +1,291 @@
+/* ---- Body & Background ---- */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif; /* Or any font you like */
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)) fixed, 
+    url("https://png.pngtree.com/thumb_back/fw800/background/20240223/pngtree-a-purple-and-blue-landscape-with-mountains-image_15629308.jpg") 
+    no-repeat center center fixed; 
+  /* ^ This Unsplash image is a placeholder; replace it with your starry sky or remove if you prefer a pure gradient. */
+  background-size: cover;
+  /* The background is placed behind a purple gradient. Adjust as needed. */
+  color: #fff;
+position: relative; /* anchor pseudo-element */
+  overflow: hidden;   /* hide any star box-shadows that extend out */
+}
+
+/* ---- Twinkling Stars Overlay ---- */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 5px;
+  
+  /*
+    The trick: We draw a tiny 2x2 dot, 
+    then replicate it at multiple positions with box-shadow.
+    Each coordinate is "x y color".
+  */
+  box-shadow: 
+    50px 80px 2px #ffffff,
+100px 120px 4px #ffffff,
+120px 180px 4px #ffffff,
+200px 50px 4px #ffffff,
+260px 110px 4px #ffffff,
+310px 90px 2px #ffffff,
+350px 150px 4px #ffffff,
+400px 220px 2px #ffffff,
+470px 160px 4px #ffffff,
+550px 90px 4px #ffffff,
+580px 250px 4px #ffffff,
+620px 320px 4px #ffffff,
+700px 200px 2px #ffffff,
+720px 340px 6px #ffffff,
+800px 120px 4px #ffffff,
+830px 260px 2px #ffffff,
+860px 190px 6px #ffffff,
+900px 340px 4px #ffffff,
+950px 380px 6px #ffffff,
+1050px 140px 6px #ffffff,
+1100px 280px 6px #ffffff,
+1200px 400px 4px #ffffff,
+1300px 180px 2px #ffffff,
+1350px 320px 6px #ffffff,
+1400px 280px 2px #ffffff,
+1450px 370px 6px #ffffff,
+1500px 300px 6px #ffffff,
+1550px 380px 4px #ffffff,
+1600px 200px 4px #ffffff,
+1650px 100px 2px #ffffff,
+1700px 250px 4px #ffffff,
+1750px 150px 6px #ffffff,
+1800px 300px 2px #ffffff,
+1850px 350px 4px #ffffff,
+1900px 200px 6px #ffffff,
+1950px 250px 4px #ffffff,
+2000px 300px 2px #ffffff,
+50px 360px 4px #ffffff,
+150px 320px 2px #ffffff,
+250px 280px 4px #ffffff,
+350px 340px 6px #ffffff,
+450px 200px 4px #ffffff,
+550px 240px 2px #ffffff,
+650px 300px 4px #ffffff,
+750px 360px 6px #ffffff,
+850px 320px 4px #ffffff,
+950px 280px 2px #ffffff,
+1050px 340px 4px #ffffff,
+1150px 360px 6px #ffffff,
+1250px 300px 4px #ffffff,
+1350px 260px 2px #ffffff,
+1450px 320px 4px #ffffff,
+1550px 340px 6px #ffffff,
+1650px 380px 4px #ffffff,
+1750px 360px 2px #ffffff,
+1850px 320px 4px #ffffff,
+1950px 300px 6px #ffffff;
+  
+  /* 
+    By animating opacity (or slightly shifting color/blur),
+    we simulate a soft twinkle
+  */
+  animation: twinkle 1s ease-in-out infinite alternate;
+  pointer-events: none; /* so it doesn’t block clicks */
+}
+
+/* Twinkle Keyframes */
+@keyframes twinkle {
+  0% {
+    opacity: 1.5;
+  }
+  100% {
+    /* Dimmer or slightly different color for a glow effect */
+    opacity: 0.4;
+  }
+}
+
+/* ---- Container to center the card ---- */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* 100% of the viewport height */
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+@keyframes breathe {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05); /* slightly larger */
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px; /* adjust vertical spacing as needed */
+}
+
+/* Style for the logo image */
+.logo {
+  width: 150px;           /* Adjust the logo size as needed */
+  height: auto;           /* Maintains aspect ratio */
+  filter: brightness(1.3); /* Increase brightness (1.0 is normal, >1.0 is brighter) */
+  
+  /* Doodle box effect */
+  padding: 0;                  /* Space between the logo and the border */
+  border: none;      /* Dashed border for a doodle look */
+  border-radius: 30px;            /* Rounded corners */
+  background-color: rgba(0,0,0,0); /* Optional subtle background behind the logo */
+}
+.site-header {
+   position: fixed;
+  top: 18%;
+  left: 50%;
+  /* Translate by 50% to center horizontally and vertically */
+  transform: translate(-50%, -50%);
+  z-index: 1000;  /* Ensure it's above any background elements */
+  text-align: center;
+}
+
+/* Style the logo image */
+.logo {
+  width: 350px; /* adjust to desired size */
+  height: auto; /* maintains aspect ratio */
+  filter: brightness(3); /* Increase brightness (1.0 is normal, >1.0 is brighter) */
+
+}
+/* ---- Container to center the card ---- */
+.login-container {
+  animation: breathe 2.8s ease-in-out infinite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* 100% of the viewport height */
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* ---- The login card ---- */
+.login-card {
+  background: rgba(255, 255, 255, 0.1); /* Semi-transparent white */
+  backdrop-filter: blur(8px); /* Glassmorphism effect (if supported) */
+  border-radius: 10px;
+  padding: 2rem;
+  width: 320px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+/* ---- Title ---- */
+.login-title {
+  text-align: center;
+  margin: 0;
+  font-size: 2rem;
+  letter-spacing: 1px;
+}
+
+/* ---- Input fields ---- */
+.input-field {
+  position: relative;
+  display: flex;
+  align-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 25px;
+  padding: 0.6rem 1rem;
+  background: rgba(255, 255, 255, 0.05);
+}
+.input-field i {
+  color: #fff;
+  margin-right: 8px;
+}
+.input-field input {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #fff;
+  flex: 1;
+  font-size: 1rem;
+  font-family: inherit;
+}
+.input-field input::placeholder {
+  color: #ddd;
+}
+
+/* ---- Remember me / Forgot password ---- */
+.options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.9rem;
+}
+.remember-me {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.remember-me input {
+  margin-right: 5px;
+  accent-color: #f4f4f4; /* Modern browsers for a custom checkbox color */
+}
+.forgot {
+  text-decoration: none;
+  color: #fff;
+  opacity: 0.8;
+  transition: opacity 0.3s;
+}
+.forgot:hover {
+  opacity: 1;
+}
+
+/* ---- Login button ---- */
+.login-btn {
+  background: #fff;
+  color: #210B45;
+  border: none;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  width: 100%;
+  padding: 0.7rem;
+  transition: background 0.3s;
+}
+.login-btn:hover {
+  background: #f0f0f0;
+}
+
+/* ---- Register link ---- */
+.register {
+  text-align: center;
+  font-size: 0.9rem;
+}
+.register a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  margin-left: 0.3rem;
+  opacity: 0.9;
+  transition: opacity 0.3s;
+}
+.register a:hover {
+  opacity: 1;
+}
+
+/* ---- Responsive tweaks (optional) ---- */
+@media screen and (max-width: 400px) {
+  .login-card {
+    width: 90%;
+    padding: 1.5rem;
+  }
+}

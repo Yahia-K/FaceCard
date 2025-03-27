@@ -1,0 +1,67 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scan Face - Face Payment</title>
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <style>
+        /* Full-screen background */
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(to right, #0b538f, #6a2e8e);
+            font-family: Arial, sans-serif;
+            text-align: center;
+            color: white;
+        }
+
+        /* Scan box */
+        .scan-container {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 30px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Button Styling */
+        button {
+            background: #ffffff;
+            color: #4facfe;
+            border: none;
+            padding: 12px 24px;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            background: #f8f9fa;
+            color: #007bff;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="scan-container">
+        <h2>Scan Your Face</h2>
+        <p>Click the button below to start the face scan.</p>
+
+        <!-- Scan Face Button -->
+        <form id="scanFaceForm" method="POST" action="{% url 'scan_face' %}">
+            {% csrf_token %}
+            <button type="submit">Scan Face</button>
+        </form>
+    </div>
+
+</body>
+</html>

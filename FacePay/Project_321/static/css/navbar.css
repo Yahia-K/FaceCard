@@ -1,0 +1,44 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+html {
+  height: 100%;
+  background-image: linear-gradient(to right top, #8e44ad 0%, #3498db 100%);
+}
+
+nav {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0;
+  /* Very transparent dark purple background */
+  background: rgba(33, 11, 69, 0.1);
+}
+
+nav ul {
+  text-align: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+nav ul li {
+  display: inline-block;
+}
+
+nav ul li a {
+  padding: 18px;
+  font-family: "Open Sans", sans-serif;
+  text-transform: uppercase;
+  color: #fff;
+  font-size: 18px;
+  text-decoration: none;
+  display: block;
+  transition: background 0.3s, color 0.3s;
+  /* Start with no background color */
+  background: transparent;
+}
+
+nav ul li a:hover {
+  /* On hover, change background to solid purple */
+  background: #210B45;
+  color: #fff;
+}

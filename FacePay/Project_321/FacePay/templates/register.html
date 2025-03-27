@@ -1,0 +1,110 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Register</title>
+  <!-- Link to the navbar CSS -->
+  <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+  <!-- Link to your main CSS -->
+  <link rel="stylesheet" href="{% static 'css/main.css' %}">
+  <link rel="stylesheet" href="{% static 'css/register.css' %}">
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+
+  <nav class="navbar">
+    <ul>
+      <li><a href="{% url 'homepage' %}">Home</a></li>
+      <li><a href="{% url 'login' %}">Login</a></li>
+    </ul>
+  </nav>
+</head>
+<body>
+  <header class="site-header">
+    <img src="{% static 'images/facecard-removebg-preview.png' %}" alt="Company Logo" class="logo">
+  </header>
+
+  <div class="register-container">
+    <div class="register-card">
+      <h2 class="register-title">Register</h2>
+
+      <!-- Display error messages -->
+      {% if messages %}
+      <div class="error-messages">
+        {% for message in messages %}
+          <p style="color: red;">{{ message }}</p>
+        {% endfor %}
+      </div>
+      {% endif %}
+
+      <form method="POST" action="{% url 'register' %}">
+        {% csrf_token %}
+
+        <!-- First Name & Last Name -->
+        <div class="field-row">
+          <div class="input-field">
+            <i class="fas fa-user"></i>
+            <input type="text" name="first_name" placeholder="First Name" required>
+          </div>
+          <div class="input-field">
+            <i class="fas fa-user"></i>
+            <input type="text" name="last_name" placeholder="Last Name" required>
+          </div>
+        </div>
+
+        <!-- Username & Age -->
+        <div class="field-row">
+          <div class="input-field">
+            <i class="fas fa-user"></i>
+            <input type="text" name="username" placeholder="Username" required>
+          </div>
+          <div class="input-field">
+            <i class="fas fa-birthday-cake"></i>
+            <input type="number" name="age" placeholder="Age" required>
+          </div>
+        </div>
+
+        <!-- Email & Password -->
+        <div class="field-row">
+          <div class="input-field">
+            <i class="fas fa-envelope"></i>
+            <input type="email" name="email" placeholder="Email Address" required>
+          </div>
+          <div class="input-field">
+            <i class="fas fa-lock"></i>
+            <input type="password" name="password" placeholder="Password" required>
+          </div>
+        </div>
+
+        <!-- Confirm Password & User Type -->
+        <div class="field-row">
+          <div class="input-field">
+            <i class="fas fa-lock"></i>
+            <input type="password" name="confirm_password" placeholder="Confirm Password" required>
+          </div>
+          <div class="input-field">
+            <i class="fas fa-users"></i>
+            <select name="user_type" required>
+              <option value="" disabled selected>Select User Type</option>
+              <option value="parent">Parent</option>
+              <option value="worker">Worker</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Register Button -->
+        <div class="field-row">
+          <div class="input-field full-width">
+            <button type="submit" class="register-btn">Register</button>
+          </div>
+        </div>
+      </form>
+
+      <!-- Link to Login Page -->
+      <div class="login-link">
+        Already have an account? <a href="{% url 'login' %}">Login</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

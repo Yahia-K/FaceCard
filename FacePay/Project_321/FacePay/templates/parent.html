@@ -1,0 +1,230 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Parent Dashboard - Face Payment</title>
+  <link href="{% static 'assets/css/bootstrap.css' %}" rel="stylesheet" />
+  <link href="{% static 'assets/css/font-awesome.css' %}" rel="stylesheet" />
+  <link href="{% static 'css/parent.css' %}" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css" />
+
+    <style>
+/* Modal Styling */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    width: 400px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+    </style>
+</head>
+<body>
+  <nav class="sidebar">
+    <div class="sidebar-header">
+      <img src="{% static 'assets/img/parent_avatar.png' %}" alt="Parent Avatar" class="avatar">
+      <h3>{{ user.full_name }}</h3>
+    </div>
+    <ul class="sidebar-menu">
+      <li><a href="{% url 'parent' %}"><i class="fa fa-home"></i> Home</a></li>
+      <li><a href="{% url 'addkid' %}"><i class="fa fa-user-plus"></i> Add Child</a></li>
+      <li><a href="{% url 'homepage' %}"><i class="fa fa-sign-out"></i> Log Out</a></li>
+    </ul>
+  </nav>
+
+  <div class="main-content">
+    <header class="header">
+      <h1>Welcome, {{ user.full_name }}</h1>
+      <div class="wallet-info">
+        <h3>Wallet Balance: AED <span id="wallet-balance">{{ user.wallet_balance }}</span></h3>
+        <button class="recharge-btn" onclick="openModal()">Recharge</button>
+      </div>
+    </header>
+
+    <section class="children-dashboard">
+      <h2>Your Children</h2>
+      <div class="children-cards">
+        {% if children %}
+          {% for child in children %}
+          <div class="child-card">
+            <img src="{% static 'assets/img/child_placeholder.png' %}" alt="Child Photo" class="child-photo">
+            <h3>{{ child.full_name }}</h3>
+            <p>Age: {{ child.age }}</p>
+            <p>Spending Limit: AED <span class="limit">{{ child.spending_limit|default:0 }}</span></p>
+            <div class="progress-bar-container">
+              <div class="progress-bar" style="width: 50%;">50%</div>
+            </div>
+            <div class="child-card-actions">
+              <button class="limit-btn" onclick="setLimit('{{ child.id }}')">Set Limit</button>
+              <button class="face-btn" onclick="addChildFace('{{ child.id }}')">Add Face</button>
+            </div>
+          </div>
+          {% endfor %}
+        {% else %}
+          <p>No children added yet. Click "Add Child" to register.</p>
+        {% endif %}
+      </div>
+    </section>
+
+    <!-- Orders & Payment History -->
+    <section class="orders-dashboard">
+      <h2>Orders & Payment History</h2>
+      <div class="table-responsive">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Child</th>
+              <th>Item</th>
+              <th>Amount (AED)</th>
+            </tr>
+          </thead>
+          <tbody>
+          {% for transaction in transactions %}
+              <tr>
+                  <td>{{ transaction.transaction_date|date:"d M Y, H:i" }}</td>
+                  <td>{{ transaction.student.full_name }}</td>
+                  <td>
+                      {% for item in transaction.cart_details %}
+                          {{ item.name }} (AED {{ item.price }})<br>
+                      {% endfor %}
+                  </td>
+                  <td>AED {{ transaction.total_price }}</td>
+              </tr>
+              {% empty %}
+              <tr>
+                  <td colspan="4">No transactions found.</td>
+              </tr>
+          {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Notifications & Quick Contacts -->
+    <section class="notifications">
+      <h2>Notifications</h2>
+      <div class="notification-card">
+        <p>Reminder: Please update your child's facial data by next month for seamless payments.</p>
+      </div>
+      <div class="quick-contacts">
+        <h3>Quick Contacts</h3>
+        <p>School Admin: <a href="tel:+971501234567">+971 501234567</a></p>
+        <p>Email: <a href="mailto:admin@school.com">admin@school.com</a></p>
+      </div>
+    </section>
+  </div>
+
+
+<!-- Recharge Modal -->
+<div id="recharge-modal" class="modal" style="display: none;">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <h2>Recharge Wallet</h2>
+    <form id="recharge-form" data-url="{% url 'recharge_wallet' %}">
+        <label for="amount">Enter amount (AED):</label>
+        <input type="number" id="amount" name="amount" min="1" required>
+        <button type="submit">Recharge</button>
+    </form>
+  </div>
+</div>
+
+
+  <!-- JavaScript -->
+  <script>
+    function setLimit(childId) {
+      let newLimit = prompt("Enter new spending limit (AED) for child ID " + childId + ":");
+      if (newLimit) {
+        alert("Spending limit updated to AED " + newLimit);
+      }
+    }
+    function addChildFace(childId) {
+      alert("Initiating facial capture for child ID " + childId + "...");
+    }
+  </script>
+
+<script>
+
+    function openModal() {
+    let modal = document.getElementById("recharge-modal");
+    if (modal) {
+        modal.style.display = "flex";
+    }
+}
+
+function closeModal() {
+    let modal = document.getElementById("recharge-modal");
+    if (modal) {
+        modal.style.display = "none";
+    }
+}
+
+  document.addEventListener("DOMContentLoaded", function () {
+  document.getElementById("recharge-form").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    let amount = document.getElementById("amount").value;
+    if (!amount || amount <= 0) {
+      alert("Please enter a valid amount.");
+      return;
+    }
+
+    let rechargeUrl = document.getElementById("recharge-form").dataset.url;
+    fetch(rechargeUrl, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "X-CSRFToken": getCSRFToken()
+      },
+      body: JSON.stringify({ amount: amount })
+    })
+    .then(response => response.json())
+    .then(data => {
+      if (data.success) {
+        document.getElementById("wallet-balance").textContent = `AED ${data.new_balance}`;
+        alert("Wallet recharged successfully!");
+        closeModal();
+      } else {
+        alert("Recharge failed: " + data.error);
+      }
+    })
+    .catch(error => console.error("Error:", error));
+  });
+
+  function getCSRFToken() {
+    let cookieValue = document.cookie.split('; ').find(row => row.startsWith('csrftoken'))?.split('=')[1];
+    return cookieValue || "";
+  }
+});
+
+</script>
+
+</body>
+</html>
