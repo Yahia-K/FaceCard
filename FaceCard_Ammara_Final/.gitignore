@@ -1,0 +1,11 @@
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.idea/
+*.sqlite3
+*.log
+.DS_Store
+.env
+FaceCard.git/

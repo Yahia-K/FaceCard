@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="7f1527c8-93c2-4fec-9d3b-271ab2da377e" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/FacePay/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/FacePay/admin.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/FacePay/apps.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/FacePay/asgi.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/FacePay/face_recognition.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/FacePay/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/FacePay/migrations/0002_allergy_facialrecognitiondata_item_itemallergy_and_more.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/FacePay/migrations/0003_alter_user_role.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/FacePay/migrations/0004_user_wallet_balance.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/FacePay/migrations/0005_remove_user_phone_number.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/FacePay/migrations/0006_faceembedding.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/FacePay/migrations/0007_remove_faceembedding_created_at_and_more.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/FacePay/migrations/0008_remove_faceembedding_user_faceembedding_student.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/FacePay/migrations/0009_product.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/FacePay/migrations/0010_remove_transaction_item_transaction_cart_details_and_more.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/FacePay/migrations/0011_remove_transaction_parent.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/FacePay/migrations/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/FacePay/models.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/FacePay/settings.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/FacePay/templates/addkid.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/FacePay/templates/canteen.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/FacePay/templates/clogin.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/FacePay/templates/homepage.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/FacePay/templates/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/FacePay/templates/login.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/FacePay/templates/parent.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/FacePay/templates/pos.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/FacePay/templates/register.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/FacePay/templates/scan_face.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/FacePay/templates/workpanel.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/FacePay/urls.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/FacePay/views.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/FacePay/wsgi.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/manage.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/assets/css/bootstrap.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/assets/css/custom.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/assets/css/font-awesome.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/assets/font-awesome/fonts/fontawesome-webfontba72.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/assets/font-awesome/fonts/fontawesome-webfontba72.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/assets/font-awesome/fonts/fontawesome-webfontba72.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/assets/font-awesome/fonts/fontawesome-webfontba72.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/assets/font-awesome/fonts/fontawesome-webfontd41d.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/assets/fonts/glyphicons-halflings-regular.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/assets/fonts/glyphicons-halflings-regular.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/assets/fonts/glyphicons-halflings-regular.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/assets/fonts/glyphicons-halflings-regular.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/assets/fonts/glyphicons-halflings-regulard41d.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/assets/img/find_user.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/assets/js/bootstrap.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/assets/js/custom.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/assets/js/jquery-1.10.2.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/assets/js/jquery.metisMenu.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/css/addkid.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/css/animate.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/css/bootstrap-grid.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/css/bootstrap-grid.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/css/bootstrap-grid.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/css/bootstrap-grid.min.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/css/bootstrap-reboot.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/css/bootstrap-reboot.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/css/bootstrap-reboot.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/css/bootstrap-reboot.min.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/css/bootstrap.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/css/bootstrap.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/css/bootstrap.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/css/bootstrap.min.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/css/default-skin.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/css/font-awesome.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/css/homepage.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/css/icomoon.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/css/jquery-ui.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/css/jquery.fancybox.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/css/jquery.mCustomScrollbar.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/css/login.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/css/meanmenu.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/css/navbar.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/css/navbar_homepage.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/css/nice-select.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/css/normalize.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/css/owl.carousel.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/css/parent.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/css/pos.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/css/register.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/css/responsive.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/css/slick.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/css/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/fonts/FontAwesome.otf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/fonts/IcoMoon-Free.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/fonts/Poppins-Black.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/fonts/Poppins-BlackItalic.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/fonts/Poppins-Bold.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/fonts/Poppins-BoldItalic.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/fonts/Poppins-ExtraBold.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/fonts/Poppins-ExtraBoldItalic.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/fonts/Poppins-ExtraLight.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/fonts/Poppins-ExtraLightItalic.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/fonts/Poppins-Italic.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/fonts/Poppins-Light.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/fonts/Poppins-LightItalic.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/fonts/Poppins-Medium.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/fonts/Poppins-MediumItalic.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/fonts/Poppins-Regular.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/fonts/Poppins-SemiBold.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/fonts/Poppins-SemiBoldItalic.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/fonts/Poppins-Thin.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/fonts/Poppins-ThinItalic.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/fonts/fontawesome-webfont.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/fonts/fontawesome-webfont.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/fonts/fontawesome-webfont.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/fonts/fontawesome-webfont.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/fonts/fontawesome-webfont.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/images/Kids.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/images/Parents.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/images/abo_bg.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/images/about.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/images/ban_img.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/images/bg.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/images/bitcoins.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/images/btn_h.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/images/buy.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/images/china-teu.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/images/facecard-removebg-preview.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/images/facepay.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/images/hearder.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/images/insta4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/images/loading.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/images/logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/images/loogo2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/images/map-(1).png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/images/menu_icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/images/pngtree-a-purple-and-blue-landscape-with-mountains-image_15629308.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/images/service.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/images/services_icon1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/images/services_icon1h.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/images/services_icon2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/images/services_icon2h.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/images/services_icon3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/images/services_icon3h.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/images/services_icon4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/images/services_icon4h.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/images/sub_bg.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/images/test.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/images/wallet.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/js/bootstrap.bundle.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/js/bootstrap.bundle.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/js/bootstrap.bundle.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/js/bootstrap.bundle.min.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/js/bootstrap.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/js/bootstrap.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/js/bootstrap.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/js/bootstrap.min.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/js/custom.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/js/jquery-3.0.0.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/js/jquery.mCustomScrollbar.concat.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/js/jquery.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/js/jquery.validate.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/js/modernizer.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/js/plugin.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/js/popper.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/js/revolution/assets/coloredbg.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/js/revolution/assets/gridtile.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/js/revolution/assets/gridtile_3x3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/js/revolution/assets/gridtile_3x3_white.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/js/revolution/assets/gridtile_white.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/js/revolution/assets/loader.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/js/revolution/css/closedhand.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/js/revolution/css/layers.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/js/revolution/css/navigation.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/js/revolution/css/openhand.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/js/revolution/css/settings.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/js/revolution/fonts/pe-icon-7-stroke/css/pe-icon-7-stroke.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/js/revolution/fonts/pe-icon-7-stroke/fonts/Pe-icon-7-strokebb1d.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/js/revolution/fonts/pe-icon-7-stroke/fonts/Pe-icon-7-strokebb1d.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/js/revolution/fonts/pe-icon-7-stroke/fonts/Pe-icon-7-strokebb1d.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/js/revolution/fonts/pe-icon-7-stroke/fonts/Pe-icon-7-strokebb1d.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/js/revolution/fonts/pe-icon-7-stroke/fonts/Pe-icon-7-stroked41d.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/js/revolution/fonts/revicons/revicons90c6.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/js/revolution/fonts/revicons/revicons90c6.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/js/revolution/fonts/revicons/revicons90c6.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/js/revolution/fonts/revicons/revicons90c6.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/js/revolution/js/extensions/revolution.extension.actions.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/js/revolution/js/extensions/revolution.extension.carousel.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/js/revolution/js/extensions/revolution.extension.kenburn.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/js/revolution/js/extensions/revolution.extension.layeranimation.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/js/revolution/js/extensions/revolution.extension.migration.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/js/revolution/js/extensions/revolution.extension.navigation.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/js/revolution/js/extensions/revolution.extension.parallax.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/js/revolution/js/extensions/revolution.extension.slideanims.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/js/revolution/js/extensions/revolution.extension.video.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/js/revolution/js/jquery.themepunch.revolution.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/js/revolution/js/jquery.themepunch.tools.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/js/slider-setting.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FacePay/Project_321/static/style.css" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
+    <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
+  <component name="ProjectId" id="2uQ8Dx3qPXDeal6Sm9FleEWohbR" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.OpenDjangoStructureViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "django.template.preview.state": "SHOW_EDITOR_AND_PREVIEW",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Users/ammara/Downloads/321 proj/FaceCard_Ammara_Final",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "vcs.Git",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RunManager" selected="Django Server.FaceCard_Ammara_Final">
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="FaceCard" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="FaceCard_Ammara_Final" type="Python.DjangoServer" factoryName="Django server">
+      <module name="FaceCard_Ammara_Final" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <option name="port" value="8000" />
+      <option name="host" value="" />
+      <option name="additionalOptions" value="" />
+      <option name="browserUrl" value="" />
+      <option name="runTestServer" value="false" />
+      <option name="runNoReload" value="false" />
+      <option name="useCustomRunCommand" value="false" />
+      <option name="customRunCommand" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="FacePay_Noor_Updated_Frontend" type="Python.DjangoServer" factoryName="Django server">
+      <module name="FaceCard" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <option name="port" value="8000" />
+      <option name="host" value="" />
+      <option name="additionalOptions" value="" />
+      <option name="browserUrl" value="" />
+      <option name="runTestServer" value="false" />
+      <option name="runNoReload" value="false" />
+      <option name="useCustomRunCommand" value="false" />
+      <option name="customRunCommand" value="" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-PY-243.25659.43" />
+        <option value="bundled-python-sdk-181015f7ab06-4df51de95216-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-243.25659.43" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7f1527c8-93c2-4fec-9d3b-271ab2da377e" name="Changes" comment="" />
+      <created>1742169322068</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1742169322068</updated>
+      <workItem from="1742169323349" duration="53000" />
+      <workItem from="1742169527874" duration="106000" />
+      <workItem from="1742170577183" duration="113000" />
+      <workItem from="1742170715298" duration="24820000" />
+      <workItem from="1742247806404" duration="77000" />
+      <workItem from="1742247907847" duration="1112000" />
+      <workItem from="1742249054260" duration="6475000" />
+      <workItem from="1742269687166" duration="1607000" />
+      <workItem from="1742271324857" duration="3365000" />
+      <workItem from="1742324719124" duration="12523000" />
+      <workItem from="1742341631498" duration="13384000" />
+      <workItem from="1742384054126" duration="52108000" />
+      <workItem from="1742538454531" duration="1221000" />
+      <workItem from="1742672000698" duration="684000" />
+      <workItem from="1742673776893" duration="15503000" />
+      <workItem from="1742772491127" duration="4035000" />
+      <workItem from="1743023299640" duration="7052000" />
+      <workItem from="1743033887028" duration="8458000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
