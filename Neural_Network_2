@@ -1,0 +1,145 @@
+import tensorflow as tf
+import numpy as np
+import cv2
+import json
+from tensorflow.keras.preprocessing import image
+from tensorflow.keras.applications.resnet50 import preprocess_input
+import kagglehub
+
+# Using a Ready Trained Model With Embedding Functions
+path = kagglehub.model_download("faiqueali/facenet-tensorflow/tensorFlow2/default")
+print("Path to model files:", path)
+
+model_dir = '/root/.cache/kagglehub/models/faiqueali/facenet-tensorflow/tensorFlow2/default/2'
+model = tf.saved_model.load(model_dir)
+
+# defining the function from the loaded model
+infer = model.signatures['serving_default']
+
+
+# Setting up a database using sqlite to store the facial embeddings
+
+def setup_database(db_path):
+    """Set up the database with a table for embeddings."""
+    conn = sqlite3.connect(db_path)
+    cursor = conn.cursor()
+    # Create table if it doesn't exist
+    cursor.execute('''
+        CREATE TABLE IF NOT EXISTS face_embeddings (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            name TEXT NOT NULL,
+            embedding TEXT NOT NULL
+        )
+    ''')
+    conn.commit()
+    conn.close()
+
+
+# Setting up the connection to the attached camera
+# The cashier will be able to capture an image by pressing S so it can be used for the comparison with the facial embeddings in the database
+def capture_from_camera():
+    """Capture a single image from the connected camera."""
+    cap = cv2.VideoCapture(0)
+    if not cap.isOpened():
+        print("Error: Camera not accessible.")
+        return None
+
+    print("Press 's' to capture an image, or 'q' to quit.")
+    while True:
+        ret, frame = cap.read()
+        if not ret:
+            print("Failed to grab frame.")
+            break
+
+        cv2.imshow("Camera", frame)
+
+        key = cv2.waitKey(1) & 0xFF
+        if key == ord('s'):  # Capture image
+            cap.release()
+            cv2.destroyAllWindows()
+            return frame
+        elif key == ord('q'):  # Quit
+            cap.release()
+            cv2.destroyAllWindows()
+            return None
+
+
+# function for making facial embeddings
+def preprocess_image(img):
+    """Preprocess the image for generating facial embeddings"""
+    img = cv2.resize(img, (160, 160))
+    img_array = np.expand_dims(img, axis=0)
+    img_array = preprocess_input(img_array)
+    return img_array
+
+
+# function for saving the facial embeddings to a table in the database (for first time users)
+# the embedding will be stored in the form of JSON
+def save_embedding_to_db(db_path, name, embedding):
+    """Save a face embedding to the database."""
+    conn = sqlite3.connect(db_path)
+    cursor = conn.cursor()
+    embedding_json = json.dumps(embedding.tolist())
+    cursor.execute('INSERT INTO face_embeddings (name, embedding) VALUES (?, ?)', (name, embedding_json))
+    conn.commit()
+    conn.close()
+
+
+# Function for loading the facial embeddings from the database (in order to be used for comparison)
+def load_embeddings_from_db(db_path):
+    """Load ALL the embeddings from database."""
+    conn = sqlite3.connect(db_path)
+    cursor = conn.cursor()
+    cursor.execute('SELECT name, embedding FROM face_embeddings')
+    rows = cursor.fetchall()
+    conn.close()
+    database = {}
+    for name, embedding_json in rows:
+        embedding = np.array(json.loads(embedding_json))
+        database[name] = embedding
+    return database
+
+
+# Function for comparing the shot from the camera with facial embeddings from the database
+def find_best_match(face_embedding, database, threshold=0.6):
+    """Find the best match for the given face embedding in the database."""
+    best_match = None
+    min_distance = float('inf')
+
+    for name, db_embedding in database.items():
+        distance = np.linalg.norm(face_embedding - db_embedding)
+        if distance < min_distance:
+            min_distance = distance
+            best_match = name
+
+    if min_distance < threshold:
+        return best_match, min_distance
+    else:
+        return None, min_distance
+
+
+# Calling all the functions, THE MAIN
+if _name_ == "_main_":
+    db_path = 'face_database.db'  # Path to SQLite database
+    setup_database(db_path)
+
+    print("Starting camera...")
+    captured_image = capture_from_camera()
+
+    if captured_image is not None:
+        embedding = get_face_embedding(captured_image)
+        print("Enter name to save this face (or leave blank to skip):")
+        name = input().strip()
+        if name:
+            save_embedding_to_db(db_path, name, embedding)
+            print(f"Face embedding saved for {name}.")
+
+        database = load_embeddings_from_db(db_path)
+        match_name, match_distance = find_best_match(embedding, database)
+
+        if match_name:
+            print(f"Match found: {match_name} (Distance: {match_distance})")
+        else:
+            print("No match found in the database.")
+    else:
+        print("No image captured.")
